@@ -1,10 +1,3 @@
-
-![image](https://github.com/user-attachments/assets/9c5db9bb-2524-4a0f-87cf-4758d655aea7)
-![image](https://github.com/user-attachments/assets/0f18030c-23c5-4bae-9e56-92e96a7f682c)
-![image](https://github.com/user-attachments/assets/de94d2f6-2ef3-495e-b143-c88fffede3ec)
-![image](https://github.com/user-attachments/assets/3335d3d1-ab0b-4ba6-b7f6-5e4ec2431ec8)
-
-
 # NLP-Driven Automated Text Analysis for Topic Classification and Clarity Assessment
 
 ## Project Overview
@@ -51,8 +44,13 @@ The models were optimized via grid search with 5-fold cross-validation and evalu
 - **Imbalance**: Categorical features (e.g., `category`, `last_editor_gender`) were skewed.
 - **Outliers**: Observed in `lexicon_count` and `difficult_words` (see histograms and boxplots below).
 
-![Histograms](figures/histograms.png)  
-*Fig-3/4: Distribution of numerical features.*
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/98da6ca6-ba74-4211-9045-729735b781be" alt="Image 1" width="500" height="300" style="display:inline-block; margin-right: 10px;"/>
+  <img src="https://github.com/user-attachments/assets/f1a2dc44-84cf-4381-9883-91071a551f4c" alt="Image 2" width="500" height="300" style="display:inline-block;"/>
+</div> 
+
+
+*Fig1: Distribution of numerical features.*
 
 ---
 

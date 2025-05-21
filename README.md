@@ -49,7 +49,6 @@ The models were optimized via grid search with 5-fold cross-validation and evalu
   <img src="https://github.com/user-attachments/assets/0e00813c-99ce-4758-9a2d-25deb57ef48c" alt="Image 2" width="500" height="300" style="display:inline-block;"/>
   <strong>Fig-1:</strong> Distribution of numerical features
 </div> 
-*Fig1: Distribution of numerical features.*
 
 ---
 
@@ -72,9 +71,11 @@ The models were optimized via grid search with 5-fold cross-validation and evalu
   - `learning_rate_init`: `0.0001` and `0.001`.
 - **Evaluation**:
   - Confusion matrix and classification report (below).
+ <div align="center">
+  <img src="https://github.com/user-attachments/assets/a9a13137-c860-4425-bac8-05fc9a8b7a60" alt="Image 1" width="600" height="500" style="display:inline-block; margin-right: 10px;"/>
+  <strong>Fig-1:</strong> Heatmap of topic classification results
+</div> 
 
-![Confusion Matrix](figures/confusion_matrix.png)  
-*Fig-11: Heatmap of topic classification results.*
 
 ### Text Clarity Prototype
 - **Labeling**: Assigned clarity based on paragraph length (`>800 words = unclear`).

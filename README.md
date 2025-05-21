@@ -72,8 +72,8 @@ The models were optimized via grid search with 5-fold cross-validation and evalu
 - **Evaluation**:
   - Confusion matrix and classification report (below).
  <div align="center">
-  <img src="https://github.com/user-attachments/assets/a9a13137-c860-4425-bac8-05fc9a8b7a60" alt="Image 1" width="600" height="500" style="display:inline-block; margin-right: 10px;"/>
-  <strong>Fig-1:</strong> Heatmap of topic classification results
+  <img src="https://github.com/user-attachments/assets/413fedb9-4a45-4751-ae64-a51dface6ca5" alt="Image 1" width="500" height="300" style="display:inline-block; margin-right: 10px;"/>
+  <strong>Fig-2:</strong> Heatmap of topic classification results
 </div> 
 
 

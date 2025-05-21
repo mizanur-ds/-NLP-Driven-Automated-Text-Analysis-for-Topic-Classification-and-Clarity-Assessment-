@@ -71,10 +71,13 @@ The models were optimized via grid search with 5-fold cross-validation and evalu
   - `learning_rate_init`: `0.0001` and `0.001`.
 - **Evaluation**:
   - Confusion matrix and classification report (below).
- <div align="center">
-  <img src="https://github.com/user-attachments/assets/413fedb9-4a45-4751-ae64-a51dface6ca5" alt="Image 1" width="500" height="300" style="display:inline-block;"/>
-  <strong>Fig-2:</strong> Heatmap of topic classification results
-</div> 
+<div align="center" style="text-align:center;">
+  <div style="display:inline-block;">
+    <img src="https://github.com/user-attachments/assets/413fedb9-4a45-4751-ae64-a51dface6ca5" alt="Image 1" width="500" height="300"/><br/>
+    <strong>Fig-2:</strong> Heatmap of topic classification results
+  </div>
+</div>
+
 
 
 ### Text Clarity Prototype

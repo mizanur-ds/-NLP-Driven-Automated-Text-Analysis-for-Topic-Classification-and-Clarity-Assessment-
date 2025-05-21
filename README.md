@@ -44,12 +44,14 @@ The models were optimized via grid search with 5-fold cross-validation and evalu
 - **Imbalance**: Categorical features (e.g., `category`, `last_editor_gender`) were skewed.
 - **Outliers**: Observed in `lexicon_count` and `difficult_words` (see histograms and boxplots below).
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/8913048e-b22b-4353-9727-ad8a38b96ac4" alt="Image 1" width="500" height="300" style="display:inline-block; margin-right: 10px;"/>
-  <img src="https://github.com/user-attachments/assets/0e00813c-99ce-4758-9a2d-25deb57ef48c" alt="Image 2" width="500" height="300" style="display:inline-block;"/>
-  <strong>Fig-1:</strong> Distribution of numerical features
-</div> 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8913048e-b22b-4353-9727-ad8a38b96ac4" width="45%" />
+  <img src="https://github.com/user-attachments/assets/0e00813c-99ce-4758-9a2d-25deb57ef48c" width="45%" />
+</p>
 
+<p align="center">
+  <strong>Figure 1: Distribution of numerical features</strong>
+</p>
 ---
 
 ## Data Preprocessing

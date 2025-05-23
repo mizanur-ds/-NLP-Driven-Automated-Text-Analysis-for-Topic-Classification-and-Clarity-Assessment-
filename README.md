@@ -1,121 +1,93 @@
-# NLP-Driven Automated Text Analysis for Topic Classification and Clarity Assessment
+# 🧠 NLP-Driven Automated Text Analysis for Topic Classification and Clarity Assessment
 
-## Project Overview
-This project focuses on two key tasks:
-1. **Topic Classification**: Using a Multilayer Perceptron (MLP) classifier to categorize paragraphs into predefined topics.
-2. **Text Clarity Assessment**: Developing a prototype MLP classifier to evaluate the clarity of text submissions.
+## 📋 Project Overview
 
-The models were optimized via grid search with 5-fold cross-validation and evaluated using precision, recall, and F1-score metrics.
+This project leverages Natural Language Processing (NLP) techniques for automated text analysis across two main tasks:
 
-## Table of Contents
-- [Executive Summary](#executive-summary)
-- [Data Exploration](#data-exploration)
-- [Data Preprocessing](#data-preprocessing)
-- [Model Implementation](#model-implementation)
-- [Results](#results)
-- [Ethical Considerations](#ethical-considerations)
-- [Conclusion](#conclusion)
-- [References](#references)
+- **Topic Classification**: Classify paragraphs into predefined topics using a Multilayer Perceptron (MLP) classifier.
+- **Text Clarity Classification**: Prototype to assess the clarity of text submissions.
+
 
 ---
 
-## Executive Summary
-### Task 1: Topic Classification
-- **Model**: MLP classifier with hyperparameter tuning (hidden layers, learning rate).
-- **Performance**: Achieved **90% macro-average F1-score**, outperforming a trivial baseline (18%).
-- **Key Metrics**: Precision, recall, and F1-score were used to address class imbalance.
+## ✨ Key Features
 
-### Task 2: Text Clarity Prototype
-- **Model**: MLP classifier trained on a labeled subset (100 samples).
-- **Performance**: **95% accuracy** on validation data, significantly better than random guessing.
-- **Labeling**: Clarity labels were inferred based on paragraph length due to limited ground truth.
+### 1. Topic Classification
+- **Model**: Multilayer Perceptron (MLP)
+- **Optimization**: Grid search with 5-fold cross-validation
+- **Metrics**: Precision, Recall, F1-score
+- **Performance**:  
+  - Macro average F1-score: **90%**  
+  - Trivial baseline: **18%**
 
----
-
-## Data Exploration
-### Dataset Overview
-- **Size**: 9,347 entries, 8 columns.
-- **Features**:
-  - Numerical: `lexicon_count`, `difficult_words`.
-  - Categorical: `paragraph`, `category`, `text_clarity`, etc.
-- **Issues**: Missing values, duplicates, and inconsistent capitalization (e.g., "Biography" vs. "biography").
-
-### Key Insights
-- **Imbalance**: Categorical features (e.g., `category`, `last_editor_gender`) were skewed.
-- **Outliers**: Observed in `lexicon_count` and `difficult_words` (see histograms and boxplots below).
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/8913048e-b22b-4353-9727-ad8a38b96ac4" width="45%" />
-  <img src="https://github.com/user-attachments/assets/0e00813c-99ce-4758-9a2d-25deb57ef48c" width="45%" />
-</p>
-
-<p align="center">
-  <strong>Figure 1: Distribution of numerical features</strong>
-</p>
----
-
-## Data Preprocessing
-1. **Cleaning**:
-   - Filled missing values using mean (numerical) and mode (categorical).
-   - Standardized text (lowercase, removed special characters).
-2. **Splitting**:
-   - 90% training, 10% test (stratified by target).
-3. **Encoding**:
-   - Label encoding for categories.
-   - SpaCy word embeddings for text (`paragraph` column).
+### 2. Text Clarity Classification (Prototype)
+- **Model**: MLP classifier
+- **Data Labeling**: Based on text length  
+  - `≤ 800` words: *Clear Enough*  
+  - `> 800` words: *Not Clear Enough*
+- **Performance**:  
+  - F1-score (*Clear Enough*): **0.94**  
+  - F1-score (*Not Clear Enough*): **0.75**  
+  - Baseline: Random guess
 
 ---
 
-## Model Implementation
-### Topic Classification
-- **Architecture**: MLP with grid-searched hyperparameters:
-  - `hidden_layer_sizes`: `(20, 20)` and `(30,)`.
-  - `learning_rate_init`: `0.0001` and `0.001`.
-- **Evaluation**:
-  - Confusion matrix and classification report (below).
-<div align="center" style="text-align:center;">
-  <div style="display:inline-block;">
-    <img src="https://github.com/user-attachments/assets/413fedb9-4a45-4751-ae64-a51dface6ca5" alt="Image 1" width="500" height="300"/><br/>
-    <strong>Fig-2:</strong> Heatmap of topic classification results
-  </div>
+## 🧾 Dataset
+
+**Total Entries**: 9,347  
+**Features**:
+
+- **Numerical**: `par_id`, `lexicon_count`, `difficult_words`
+- **Categorical**: `paragraph`, `has_entity`, `last_editor_gender`, `category`, `text_clarity`
+
+### 🔧 Preprocessing Steps
+
+- Imputation of missing values (mean for numerical, most frequent for categorical)
+- Text standardization (lowercasing, removal of special characters, etc.)
+- Label encoding of categorical features
+- Word embeddings using **SpaCy**
+
+---
+
+## ⚖️ Ethical Considerations
+
+- **Bias**: Ensures training data is diverse and representative
+- **Fairness**: Implements bias mitigation strategies
+- **Transparency**: Provides clear user guidelines for improving text clarity
+
+---
+
+## 📊 Results
+
+| Task                  | Metric        | Score | Baseline     |
+|-----------------------|---------------|-------|--------------|
+| Topic Classification  | F1 (macro)    | 90%   | 18%          |
+| Text Clarity          | F1            | 94%   | Random Guess |
+
+<!-- Figure 1: Confusion matrix heatmap -->
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/4e075d7d-cf79-45b2-b9a3-050680e03c55" alt="Confusion matrix heatmap" width="600"/>
+  <p><strong>Figure:</strong> Heat map of confusion matrix</p>
+</div>
+
+<!-- Figure 2: Confusion matrix heatmap for random guess -->
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/8cf757cc-84e6-43ac-b02d-9c15d09e4512" alt="Confusion matrix heatmap for random guess" width="600"/>
+  <p><strong>Figure:</strong> Heat map of confusion matrix (for random guess)</p>
 </div>
 
 
-
-### Text Clarity Prototype
-- **Labeling**: Assigned clarity based on paragraph length (`>800 words = unclear`).
-- **Results**: 95% validation accuracy, no overfitting.
+- Confusion matrices and classification reports are available in the full report.
 
 ---
 
-## Results
-### Topic Classification
-| Class                  | Precision | Recall | F1-Score |
-|------------------------|-----------|--------|----------|
-| Artificial Intelligence| 0.92      | 0.88   | 0.90     |
-| Philosophy             | 0.89      | 0.85   | 0.87     |
+## 📌 Summary Discussion
 
-### Text Clarity
-- **F1-Score**: 0.94 (clear) vs. 0.18 (trivial baseline).
+This project successfully addresses:
+- **Robust topic classification**, achieving high performance with minimal misclassification (<10% in most cases).
+- **Effective clarity assessment prototype**, showing strong performance even with limited labeled data.
+
+The use of **MLP** models demonstrates flexibility and effectiveness in handling non-linear, high-dimensional NLP tasks. Future improvements include enhanced labeling strategies for better clarity evaluation.
 
 ---
 
-## Ethical Considerations
-- **Bias Risk**: Clarity judgments based on length may disadvantage long-form content.
-- **Mitigation**:
-  - Use diverse training data.
-  - Provide user feedback for rejected submissions.
-
----
-
-## Conclusion
-- Both models met client requirements with **<10% misclassification** (topic) and **95% accuracy** (clarity).
-- **Recommendation**: Expand labeled data for clarity assessment to reduce reliance on heuristic labeling.
-
----
-
-## References
-1. Windeatt, T. (2006). *Accuracy/Diversity and Ensemble MLP Classifier Design*. IEEE.  
-   [Link](https://ieeexplore.ieee.org/abstract/document/1687930)
-2. Shekar, B. H., & Dagnew, G. (2019). *Grid Search-Based Hyperparameter Tuning*. IEEE.  
-   [Link](https://ieeexplore.ieee.org/abstract/document/8882943)
